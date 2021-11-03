@@ -122,7 +122,7 @@ class Bendahara_model extends CI_Model
 
     public function getLapCabang()
     {
-        $query = "SELECT * FROM vw_kas_cabang WHERE 1";
+        $query = "SELECT * FROM vw_kas_cabang WHERE 1 ORDER BY tgl_trx DESC";
 
         return $this->db->query($query)->result_array();
     }
@@ -130,7 +130,7 @@ class Bendahara_model extends CI_Model
     public function getLapUnit()
     {
         $unit = $this->session->userdata('id_unit');
-        $query = "SELECT * FROM vw_kas_unit WHERE id_unit='$unit'";
+        $query = "SELECT * FROM vw_kas_unit WHERE id_unit='$unit' ORDER BY tgl_trx DESC";
 
         return $this->db->query($query)->result_array();
     }
