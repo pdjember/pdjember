@@ -129,7 +129,8 @@ class Bendahara_model extends CI_Model
 
     public function getLapUnit()
     {
-        $query = "SELECT * FROM vw_kas_unit WHERE 1";
+        $unit = $this->session->userdata('id_unit');
+        $query = "SELECT * FROM vw_kas_unit WHERE id_unit='$unit'";
 
         return $this->db->query($query)->result_array();
     }
