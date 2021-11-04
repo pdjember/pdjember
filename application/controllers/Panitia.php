@@ -64,7 +64,7 @@ class Panitia extends CI_Controller
         $this->db->where('id', decrypt_url($peserta_id));
         $this->db->update('anggota');
 
-        $this->db->delete('admin_ukt', ['id_anggota' => $peserta_id]);
+        $this->db->delete('admin_ukt', ['id_anggota' => decrypt_url($peserta_id)]);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus</div>');
         redirect('panitia/dataPeserta');
     }
